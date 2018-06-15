@@ -1,0 +1,215 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# put Homebrew directory at the opt of PATH environment variable
+PATH="/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# Make homebrew installed python default
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u:\w\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+# Enable colors
+export CLICOLOR=1
+
+# Improve 'ls'
+export LSCOLORS=ExFxBxDxCxegedabagacad
+
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+#bash-autocomplete
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+
+# some more ls aliases
+alias ls='ls -GFh' #MacOS. Equivalent to ls --color=auto
+alias ll='ls -altFG'
+alias la='ls -AGt'
+alias l='ls -CFG'
+
+# Find all files modified since X amount of time ago
+# Use it like: lssince n[smhdw] dirname.
+# n is a time param with units, dirname is the search space
+lssince () {
+	find "$2" -maxdepth 1 -mtime "$1";
+} 
+
+#  mkdir and cd into it
+mkcd () { mkdir -p "$1" && cd "$1"; }
+sayPath () { echo "$PATH"; }
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+#MATLAB path
+alias matlab='/Applications/MATLAB_R2017b.app/bin/matlab &'
+#GIMP
+alias gimp="open /Applications/GIMP.app"
+
+
+#Python path
+export PYTHONPATH=${PYTHONPATH}:/
+
+# Add definition for pip installing a new package in global
+gpip(){
+   PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
+}
+
+#Source bashrc alias
+alias so="source ~/.bash_profile"
+
+#Virtualenvwrapper
+#export WORKON_HOME=~/virtualEnvsPy/
+#source /usr/local/bin/virtualenvwrapper.sh
+
+#sublime-text
+#export EDITOR='subl -w'
+
+# Add path to matlab to path
+export PATH="$PATH:/Applications/MATLAB_R2017a.app/bin"
+
+
+# firefox command
+# alias firefox="open -a firefox"
+
+# added by Anaconda3 5.0.1 installer
+# export PATH="/Users/hjsong/anaconda3/bin:$PATH"
+alias useConda="export PATH=/Users/hjsong/anaconda3/bin:$PATH"
+
+# Screenshot with naming each time
+# Requires an Apple Script:
+# https://discussions.apple.com/thread/713846
+alias ssname='~/Documents/name_as_taking_screenshots.app/Contents/MacOS/applet'
+
+# added by "brew install --with-python pyqt5"
+# export PATH="/usr/local/opt/qt/bin:$PATH"
+
+function frameworkpython {
+    if [[ ! -z "$VIRTUAL_ENV" ]]; then
+        PYTHONHOME=$VIRTUAL_ENV /usr/local/bin/python "$@"
+    else
+        /usr/local/opt/python/libexec/bin/python "$@"
+    fi
+    echo "PYTHONHOME: " $PYTHONHOME
+}
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+# Set simcloud default cluster
+## This can be overwritten with -c parameter: 
+## eg: simcloud -c "somethingelse" 
+export SIMCLOUD_CLUSTER=mr2
+alias sc=simcloud
+
+# Set this job
+export BID=bundle-e5c08ab126db45f5994fdc155f801424
+#export JID=4a1c99b6-1031-4101-a800-bea6db18bb83
+#export JPORT=27926
+#export JHOST=mr3-409-0711-15-srv.mr3.simcloud.apple.com
+#alias ssh_jupyter="ssh -p $JPORT -i /Users/hjsong/.simcloud/id_rsa -N -f -L localhost:9999:localhost:8888 root@$JHOST"
