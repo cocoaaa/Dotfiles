@@ -12,7 +12,7 @@ alias mkdir='mkdir -p'
 
 alias h='history'
 alias j='jobs -l'
-alias which='type -a'
+#alias which='type -a'
 alias ..='cd ..'
 
 alias kill9='kill -9'
@@ -52,7 +52,8 @@ alias egrep='egrep --color=auto'
 alias VIM='vim'
 alias CLEAR='clear'
 alias CD='cd'
-
+alias SUBL='subl'
+alias OPEN='open'
 
 ########################################################################################
 # Add an "alert" alias for long running commands.  Use like so:
