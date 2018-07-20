@@ -1,6 +1,6 @@
 # Listening port search
 lps () {
-  sudo lsof -i tcp:"$1" | grep LISTEN;
+  sudo lsof -nP -i4TCP:"$1" | grep LISTEN;
 }
 
 # Open man page as PDF
