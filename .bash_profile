@@ -145,7 +145,7 @@ gpip(){
 #export EDITOR='subl -w'
 
 # Add path to matlab to path
-export PATH="$PATH:/Applications/MATLAB_R2017a.app/bin"
+#export PATH="$PATH:/Applications/MATLAB_R2017a.app/bin"
 
 # added by "brew install --with-python pyqt5"
 # export PATH="/usr/local/opt/qt/bin:$PATH"
@@ -160,18 +160,4 @@ function frameworkpython {
 }
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
-# Set simcloud default cluster
-## This can be overwritten with -c parameter: 
-## eg: simcloud -c "somethingelse" 
-export SIMCLOUD_CLUSTER=mr2
-
-# Set this job
-export BID=bundle-e5c08ab126db45f5994fdc155f801424
-#export JID=4a1c99b6-1031-4101-a800-bea6db18bb83
-#export JPORT=27926
-#export JHOST=mr3-409-0711-15-srv.mr3.simcloud.apple.com
-#alias ssh_jupyter="ssh -p $JPORT -i /Users/hjsong/.simcloud/id_rsa -N -f -L localhost:9999:localhost:8888 root@$JHOST"
-
-
 
