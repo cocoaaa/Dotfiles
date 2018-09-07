@@ -67,7 +67,7 @@ alias gimp="open /Applications/GIMP.app"
 ##Source bashrc alias
 alias so="source ~/.bash_profile"
 
-alias useConda="export PATH=/Users/hjsong/anaconda3/bin:$PATH"
+alias useConda="export PATH=/Users/hayley/miniconda3/bin:$PATH"
 
 ########################################################################################
 #simcloud 

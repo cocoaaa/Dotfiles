@@ -1,9 +1,9 @@
 [user]
 	name = Hayley Song
-	email = hjsong@apple.com
+	email = haejinso@usc.edu
 
 [core]
-	excludesfile = /Users/hjsong/.gitignore
+	excludesfile = /Users/hayley/.gitignore
 
 [color]
 	ui = auto
