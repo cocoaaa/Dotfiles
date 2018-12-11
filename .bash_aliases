@@ -66,19 +66,6 @@ alias matlab='/Applications/MATLAB_R2017b.app/bin/matlab &'
 alias gimp="open /Applications/GIMP.app"
 ##Source bashrc alias
 alias so="source ~/.bash_profile"
-
 alias useConda="export PATH=/Users/hayley/miniconda3/bin:$PATH"
-
-########################################################################################
-#simcloud 
-########################################################################################
-alias sc=simcloud
-# Turi Blobby 
-alias blobby='aws --endpoint-url https://blob.mr3.simcloud.apple.com --cli-read-timeout 300'
-
-# Fastai on Simcloud
-export SCJUPYTER_PATH='/Users/hjsong/Playground/Simcloud/contrib-master@4181a6f898d/course.fast.ai/scjupyter.sh'
-source "$SCJUPYTER_PATH"
-
 
 
