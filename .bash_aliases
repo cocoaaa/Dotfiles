@@ -61,24 +61,19 @@ alias OPEN='open'
 ########################################################################################
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 #MATLAB path
-alias matlab='/Applications/MATLAB_R2017b.app/bin/matlab &'
+#alias matlab='/Applications/MATLAB_R2017b.app/bin/matlab &'
 #GIMP
-alias gimp="open /Applications/GIMP.app"
+#alias gimp="open /Applications/GIMP.app"
 ##Source bashrc alias
-alias so="source ~/.bash_profile"
+alias so="source ~/.bashrc"
+alias useConda="export PATH=~/miniconda3/bin:$PATH"
+alias docker="sudo docker"
 
-alias useConda="export PATH=/Users/hayley/miniconda3/bin:$PATH"
+alias useFastai="useConda && source activate fastai"
+alias useAPLS="useConda && source activate apls_environment"
 
-########################################################################################
-#simcloud 
-########################################################################################
-alias sc=simcloud
-# Turi Blobby 
-alias blobby='aws --endpoint-url https://blob.mr3.simcloud.apple.com --cli-read-timeout 300'
+# nvidia-smi watch 
+alias gps="nvidia-smi -lms 500"
 
-# Fastai on Simcloud
-export SCJUPYTER_PATH='/Users/hjsong/Playground/Simcloud/contrib-master@4181a6f898d/course.fast.ai/scjupyter.sh'
-source "$SCJUPYTER_PATH"
-
-
-
+# google drive 
+alias grive='grive -P'

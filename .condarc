@@ -1,0 +1,7 @@
+channels:
+  - conda-forge
+  - defaults
+
+# always install the packages silently
+always_yes: True
+
