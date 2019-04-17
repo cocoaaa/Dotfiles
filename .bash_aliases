@@ -37,7 +37,7 @@ alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
 # The ubiquitous 'll': directories first, with alphanumeric sorting:
 alias lm='ll |more'        #  Pipe through 'more'
 alias lr='ll -R'           #  Recursive ls.
-alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
+alias tree2='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
 
 # Make grep more user friendly by highlighting matches
 # and exclude grepping through .svn folders.
@@ -51,6 +51,8 @@ alias egrep='egrep --color=auto'
 ########################################################################################
 alias VIM='vim'
 alias CLEAR='clear'
+alias CL='clear'
+alias cl='clear'
 alias CD='cd'
 alias SUBL='subl'
 alias OPEN='open'
@@ -67,5 +69,13 @@ alias gimp="open /Applications/GIMP.app"
 ##Source bashrc alias
 alias so="source ~/.bash_profile"
 alias useConda="export PATH=/Users/hayley/miniconda3/bin:$PATH"
+alias useFastai="useConda && source activate fastai-cpu"
+alias usePelican="useConda && source activate pelican-blog"
+#alias rsync="rsync --progress --partial -avz"
 
+# Add notification for finished processes
+#alias notifyDone="terminal-notifier -message 'Job finished'"
+alias notifyDone="osascript ~/Playground/AppleScripts/notify_done.scpt"
+# QGIS3
+alias qgis="open -n /Applications/QGIS3.app"
 
