@@ -79,3 +79,5 @@ alias notifyDone="osascript ~/Playground/AppleScripts/notify_done.scpt"
 # QGIS3
 alias qgis="open -n /Applications/QGIS3.app"
 
+# Blog content folder path
+alias BLOG="~/Workspace/Blog"

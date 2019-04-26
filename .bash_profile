@@ -141,6 +141,8 @@ gpip(){
    PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
 }
 
+# Set Blog folder path
+export BLOG='/Users/hayley/Workspace/Blog'
 #sublime-text
 #export EDITOR='subl -w'
 

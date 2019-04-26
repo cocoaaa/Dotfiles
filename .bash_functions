@@ -7,3 +7,7 @@ lps () {
 function manpdf() {
   man -t "${1}" | open -f -a /Applications/Preview.app/
 }
+# Move the input file to Blog/content
+function mv2blog() {
+  mv "$@" ~/Workspace/Blog/content/articles
+}
