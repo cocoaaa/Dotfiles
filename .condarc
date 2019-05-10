@@ -1,7 +1,8 @@
 channels:
   - conda-forge
-  - defaults
-
-# always install the packages silently
-always_yes: True
-
+  - pytorch
+  - fastai
+  - anaconda
+always_yes: false
+channel_priority: true
+auto_update_conda: false

@@ -11,7 +11,7 @@ function manpdf() {
 # Start new jupyterlab at input port#
 function startLab() {
   # arg1: port number
-  nohup jupyter lab --port="$1" --no-browser &
+  nohup jupyter lab --port="$1" --no-browser --notebook-dir='~' &
 }
 
 # Delete all python .pyc, .pyo, __pycache__ directory

@@ -139,3 +139,30 @@ export PS1="${usercolor}\u@\h${pathcolor} \w${resetcolors} \n\\$ "
 # ENABLE CONDA TAB COMPLETION
 #eval "$(register-python-argcomplete conda)"
 
+# Set DISPLAY variable for X11 forwarding
+export DISPLAY="localhost:10.0"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/hayley/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/hayley/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/hayley/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/hayley/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+#conda env autocomplete
+eval "$(register-python-argcomplete conda)"
+
+
+# Descarteslab authentication
+export DESCARTESLABS_CLIENT_ID="ZOBAi4UROl5gKZIpxxlwOEfx8KpqXf2c"
+export DESCARTESLABS_CLIENT_SECRET="6FmUKtowwvR1SJudvG5mSFb7B_1KXbjapbn-eO1Jiy-gU"
+

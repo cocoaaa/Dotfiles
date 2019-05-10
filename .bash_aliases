@@ -51,6 +51,9 @@ alias egrep='egrep --color=auto'
 ########################################################################################
 alias VIM='vim'
 alias CLEAR='clear'
+alias cl='clear'
+alias CL='clear'
+
 alias CD='cd'
 alias SUBL='subl'
 alias OPEN='open'
@@ -66,14 +69,27 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 #alias gimp="open /Applications/GIMP.app"
 ##Source bashrc alias
 alias so="source ~/.bashrc"
-alias useConda="export PATH=~/miniconda3/bin:$PATH"
-alias docker="sudo docker"
 
-alias useFastai="useConda && source activate fastai"
-alias useAPLS="useConda && source activate apls_environment"
+#alias useConda="export PATH=~/miniconda3/bin:$PATH"
+#see: https://github.com/Microsoft/vscode-python/issues/1882#issuecomment-428621588
+#
+alias docker="sudo docker"
+alias useFastai="conda activate fastai"
+alias useAPLS="conda activate apls_environment"
 
 # nvidia-smi watch 
 alias gps="nvidia-smi -lms 500"
 
 # google drive 
-alias grive='grive -P'
+alias grive="grive -P"
+
+# Show disk storage usage in the current directory
+alias storage="du -sh * | sort -h"
+
+# Reset mouse click reporting weird characters
+alias resetMouse="printf '\e[?1000l'"
+alias resetCP="printf '\e[?2004l'"
+# Move to Spacenet_Preprocess root directory and
+# activate fastai conda environment
+alias workmode="useFastai && cd ~/Playground/Spacenet_Preprocess"
+
