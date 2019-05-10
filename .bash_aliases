@@ -66,18 +66,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 #alias rsync="rsync --progress --partial -avz"
 
-alias so="source ~/.bashrc"
-
-#alias useConda="export PATH=~/miniconda3/bin:$PATH"
-#see: https://github.com/Microsoft/vscode-python/issues/1882#issuecomment-428621588
-#
-alias docker="sudo docker"
-alias useFastai="conda activate fastai"
-alias useAPLS="conda activate apls_environment"
-
-# nvidia-smi watch 
-alias gps="nvidia-smi -lms 500"
-
 # google drive 
 alias grive="grive -P"
 
@@ -87,7 +75,17 @@ alias storage="du -sh * | sort -h"
 # Reset mouse click reporting weird characters
 alias resetMouse="printf '\e[?1000l'"
 alias resetCP="printf '\e[?2004l'"
-# Move to Spacenet_Preprocess root directory and
-# activate fastai conda environment
-# alias workmode="useFastai && cd ~/Playground/Spacenet_Preprocess"
 
+#GIMP
+alias gimp="open /Applications/GIMP.app"
+
+alias so="source ~/.bash_profile"
+
+# Add notification for finished processes
+alias notifyDone="osascript ~/Playground/AppleScripts/notify_done.scpt"
+
+# QGIS3
+alias qgis="open -n /Applications/QGIS3.app"
+
+# Blog content folder path
+alias BLOG="~/Workspace/Blog"
