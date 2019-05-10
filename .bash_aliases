@@ -64,6 +64,7 @@ alias OPEN='open'
 ########################################################################################
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
+
 #alias rsync="rsync --progress --partial -avz"
 
 # google drive 
@@ -82,6 +83,9 @@ alias gimp="open /Applications/GIMP.app"
 alias so="source ~/.bash_profile"
 
 # Add notification for finished processes
+
+# Add notification for finished processes
+#alias notifyDone="terminal-notifier -message 'Job finished'"
 alias notifyDone="osascript ~/Playground/AppleScripts/notify_done.scpt"
 
 # QGIS3
