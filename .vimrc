@@ -2,6 +2,8 @@
 set nocompatible
 filetype off
 
+"Show full path to the file on the statusbar
+set statusline+=%F
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
