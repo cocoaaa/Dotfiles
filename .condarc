@@ -1,0 +1,8 @@
+channels:
+  - conda-forge
+  - pytorch
+  - fastai
+  - anaconda
+always_yes: false
+channel_priority: true
+auto_update_conda: false

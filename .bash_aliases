@@ -51,8 +51,9 @@ alias egrep='egrep --color=auto'
 ########################################################################################
 alias VIM='vim'
 alias CLEAR='clear'
-alias CL='clear'
 alias cl='clear'
+alias CL='clear'
+
 alias CD='cd'
 alias SUBL='subl'
 alias OPEN='open'
@@ -62,22 +63,31 @@ alias OPEN='open'
 #   sleep 10; alert
 ########################################################################################
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-#MATLAB path
-alias matlab='/Applications/MATLAB_R2017b.app/bin/matlab &'
-#GIMP
-alias gimp="open /Applications/GIMP.app"
-##Source bashrc alias
-alias so="source ~/.bash_profile"
-alias useConda="export PATH=/Users/hayley/miniconda3/bin:$PATH"
-alias useFastai="useConda && source activate fastai-cpu"
-alias usePelican="useConda && source activate pelican-blog"
+
 #alias rsync="rsync --progress --partial -avz"
 
-# Add notification for finished processes
-#alias notifyDone="terminal-notifier -message 'Job finished'"
-alias notifyDone="osascript ~/Playground/AppleScripts/notify_done.scpt"
-# QGIS3
-alias qgis="open -n /Applications/QGIS3.app"
+alias so="source ~/.bashrc"
 
-# Blog content folder path
-alias BLOG="~/Workspace/Blog"
+#alias useConda="export PATH=~/miniconda3/bin:$PATH"
+#see: https://github.com/Microsoft/vscode-python/issues/1882#issuecomment-428621588
+#
+alias docker="sudo docker"
+alias useFastai="conda activate fastai"
+alias useAPLS="conda activate apls_environment"
+
+# nvidia-smi watch 
+alias gps="nvidia-smi -lms 500"
+
+# google drive 
+alias grive="grive -P"
+
+# Show disk storage usage in the current directory
+alias storage="du -sh * | sort -h"
+
+# Reset mouse click reporting weird characters
+alias resetMouse="printf '\e[?1000l'"
+alias resetCP="printf '\e[?2004l'"
+# Move to Spacenet_Preprocess root directory and
+# activate fastai conda environment
+# alias workmode="useFastai && cd ~/Playground/Spacenet_Preprocess"
+
