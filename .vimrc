@@ -4,6 +4,10 @@ filetype off
 
 "Show full path to the file on the statusbar
 set statusline+=%F
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -15,12 +19,18 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim' 
 
+"text-editting
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+
 "html
 "  isnowfy only compatible with python not python3
 Plugin 'isnowfy/python-vim-instant-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
+
 "python sytax checker
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/Pydiction'
@@ -33,6 +43,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/rope-vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
+
 ""code folding
 Plugin 'tmhedberg/SimpylFold'
 
@@ -59,7 +70,7 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 "I don't like swap files
-" set noswapfile
+set noswapfile
 
 "turn on numbering
 set nu

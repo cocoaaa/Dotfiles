@@ -73,6 +73,7 @@ alias grive="grive -P"
 # Show disk storage usage in the current directory
 alias storage="du -sh * | sort -h"
 
+
 # Reset mouse click reporting weird characters
 alias resetMouse="printf '\e[?1000l'"
 alias resetCP="printf '\e[?2004l'"
@@ -93,3 +94,13 @@ alias qgis="open -n /Applications/QGIS3.app"
 
 # Blog content folder path
 alias BLOG="~/Workspace/Blog"
+
+# Move to Dash's searchbar
+alias dq="open dash://" #dq for dash query
+
+# ssh shortcuts
+alias ssh_arya="ssh arya.usc.edu"
+alias ssh_jon='ssh jonsnow.usc.edu'
+
+# Brightness of the display 1 to zero (dark)
+alias b0='brightness -d1 0'
