@@ -72,8 +72,6 @@ alias so="source ~/.bashrc"
 #see: https://github.com/Microsoft/vscode-python/issues/1882#issuecomment-428621588
 #
 alias docker="sudo docker"
-alias useFastai="conda activate fastai"
-alias useAPLS="conda activate apls_environment"
 
 # nvidia-smi watch 
 alias gps="nvidia-smi -lms 500"
@@ -87,7 +85,6 @@ alias storage="du -sh * | sort -h"
 # Reset mouse click reporting weird characters
 alias resetMouse="printf '\e[?1000l'"
 alias resetCP="printf '\e[?2004l'"
-# Move to Spacenet_Preprocess root directory and
-# activate fastai conda environment
-# alias workmode="useFastai && cd ~/Playground/Spacenet_Preprocess"
 
+# ssh port forwarding
+alias pfArya="ssh -NfL 7000:localhost:7000 hayley@arya.usc.edu"
