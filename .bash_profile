@@ -172,3 +172,6 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 # PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 # export PATH
 . /Users/hayley/miniconda3/etc/profile.d/conda.sh
+
+# Add path to texbin
+export PATH="/Library/TeX/texbin:${PATH}"
