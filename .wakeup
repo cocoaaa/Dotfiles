@@ -1,0 +1,3 @@
+#!/bin/bash
+ssh -NfL 7000:localhost:7000 hayley@arya.usc.edu
+echo "Port forwarding from arya (7000)"
