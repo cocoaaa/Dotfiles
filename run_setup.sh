@@ -16,3 +16,4 @@ sudo ln -sf $HOME/Dotfiles/.bashrc $HOME/.bashrc  && echo ".bash_aliases sym-lin
 sudo ln -sf $HOME/Dotfiles/.gitconfig $HOME/.gitconfig && echo ".gitconfig set"
 sudo ln -sf $HOME/Dotfiles/.vimrc $HOME/.vimrc && echo ".vimrc set"
 sudo ln -sf $HOME/Dotfiles/.tmux.conf $HOME/.tmux.conf && echo ".tmux.conf set"
+sudo ln -sf $HOME/Dotfiles/.wakeup $HOME/.wakeup && echo ".wakeup script linked"
