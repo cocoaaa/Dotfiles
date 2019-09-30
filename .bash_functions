@@ -10,7 +10,7 @@ function manpdf() {
 # Move the input file to Blog/content
 function mv2blog() {
   mv "$@" ~/Workspace/Blog/content/articles
-
+}
 # Start new jupyterlab at input port#
 function startLab() {
   # arg1: port number
