@@ -25,13 +25,14 @@ alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 
 alias du='du -kh'    # Makes a more readable output.
 alias df='df -kTh'
+alias sortFolders='du -sch * .[!.]* | sort -rh' #sort folders by size
 
 # Add some easy shortcuts for formatted directory listings and add a touch of color.
 alias ls='ls -GFh' #MacOS. Equivalent to ls --color=auto
 alias ll='ls -altFG'
 alias la='ls -AGt'
 alias l='ls -CFG'
-alias lt='ls -ltr'         #  Sort by date, most recent last.
+alias lt='ls -lt'         #  Sort by date, most recent last.
 alias lc='ls -ltcr'        #  Sort by/show change time,most recent last.
 alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
 # The ubiquitous 'll': directories first, with alphanumeric sorting:
@@ -57,6 +58,7 @@ alias CL='clear'
 alias CD='cd'
 alias SUBL='subl'
 alias OPEN='open'
+alias LS='ls'
 
 ########################################################################################
 # Add an "alert" alias for long running commands.  Use like so:
@@ -89,7 +91,24 @@ alias storage="du -sh * | sort -h"
 # Reset mouse click reporting weird characters
 alias resetMouse="printf '\e[?1000l'"
 alias resetCP="printf '\e[?2004l'"
+
 # Move to Spacenet_Preprocess root directory and
 # activate fastai conda environment
 alias workmode="useFastai && cd ~/Playground/Spacenet_Preprocess"
 
+# cd to favorite folders
+alias cd_earthml="cd ~/Playground/Geo/EarthML/examples"
+alias cd_intml="cd ~/Playground/Geo/InteractML"
+alias cd_pg="cd ~/Playground"
+alias cd_sp="cd ~/Playground/Spacenet_Preprocess"
+alias cd_fai="cd ~/Playground/Fastai/course-v3"
+alias cd_pytalk="cd ~/Workspace/Talks/PyData-LA-2019"
+alias cd_rl="cd ~/Workspace/Class/CS669-RL"
+
+
+# Grep jupyter-lab under hayley as user
+alias gjlab="ps aux | grep jupyter-lab | grep hayley"
+alias gtb="ps aux | grep tensorboard | grep hayley"
+
+# nvidia-smi watch with difference highlighted
+alias nvwatch="watch -d -n 1 nvidia-smi"
