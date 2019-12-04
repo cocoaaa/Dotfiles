@@ -38,7 +38,7 @@ alias lu='ls -ltur'        #  Sort by/show access time,most recent last.
 # The ubiquitous 'll': directories first, with alphanumeric sorting:
 alias lm='ll |more'        #  Pipe through 'more'
 alias lr='ll -R'           #  Recursive ls.
-alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
+alias tree2='tree -Csuh'    #  Nice alternative to 'recursive ls' ...
 
 # Make grep more user friendly by highlighting matches
 # and exclude grepping through .svn folders.
@@ -65,28 +65,16 @@ alias LS='ls'
 #   sleep 10; alert
 ########################################################################################
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-#MATLAB path
-#alias matlab='/Applications/MATLAB_R2017b.app/bin/matlab &'
-#GIMP
-#alias gimp="open /Applications/GIMP.app"
-##Source bashrc alias
-alias so="source ~/.bashrc"
 
-#alias useConda="export PATH=~/miniconda3/bin:$PATH"
-#see: https://github.com/Microsoft/vscode-python/issues/1882#issuecomment-428621588
-#
-alias docker="sudo docker"
-alias useFastai="conda activate fastai"
-alias useAPLS="conda activate apls_environment"
 
-# nvidia-smi watch 
-alias gps="nvidia-smi -lms 500"
+#alias rsync="rsync --progress --partial -avz"
 
 # google drive 
 alias grive="grive -P"
 
 # Show disk storage usage in the current directory
 alias storage="du -sh * | sort -h"
+
 
 # Reset mouse click reporting weird characters
 alias resetMouse="printf '\e[?1000l'"
@@ -105,10 +93,13 @@ alias cd_fai="cd ~/Playground/Fastai/course-v3"
 alias cd_pytalk="cd ~/Workspace/Talks/PyData-LA-2019"
 alias cd_rl="cd ~/Workspace/Class/CS669-RL"
 
-
 # Grep jupyter-lab under hayley as user
 alias gjlab="ps aux | grep jupyter-lab | grep hayley"
 alias gtb="ps aux | grep tensorboard | grep hayley"
 
 # nvidia-smi watch with difference highlighted
 alias nvwatch="watch -d -n 1 nvidia-smi"
+
+# jupyter labextension
+alias jl="jupyter labextension"
+alias jll="jupyter labextension list"

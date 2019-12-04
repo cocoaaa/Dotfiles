@@ -141,6 +141,8 @@ gpip(){
    PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
 }
 
+# Set Blog folder path
+export BLOG='/Users/hayley/Workspace/Blog'
 #sublime-text
 #export EDITOR='subl -w'
 
@@ -167,5 +169,9 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 
 # Setting PATH for Python 3.6
 # The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-export PATH
+# PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
+# export PATH
+. /Users/hayley/miniconda3/etc/profile.d/conda.sh
+
+# Add path to texbin
+export PATH="/Library/TeX/texbin:${PATH}"
