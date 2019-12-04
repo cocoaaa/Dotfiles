@@ -106,3 +106,7 @@ alias ssh_umn="ssh geoserver@umnlcc.cs.umn.edu"
 alias pf_arya="ssh -NfL 7000:localhost:7000 hayley@128.125.184.140"
 # Brightness of the display 1 to zero (dark)
 alias b0='brightness -d1 0'
+
+# jupyter labextension
+alias jl="jupyter labextension"
+alias jll="jupyter labextension list"
