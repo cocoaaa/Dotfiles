@@ -1,0 +1,122 @@
+{
+    // Keyboard Shortcuts
+    // @jupyterlab/shortcuts-extension:plugin
+    // Keyboard shortcut settings for JupyterLab.
+    // Full list:
+    // https://github.com/jupyterlab/jupyterlab/blob/af548c2674427da79d54ad5c4b69bb175463e9a0/packages/notebook-extension/src/index.ts#L69-L197
+
+
+    // ******************************************
+
+    // [missing schema title]
+    // [missing schema description]
+    "console:linebreak": {
+      "command": "console:linebreak",
+      "keys": [
+        "Ctrl Enter"
+      ],
+      "selector": ".jp-CodeConsole-promptCell"
+    },
+
+    // [missing schema title]
+    // [missing schema description]
+    "console:run-forced": {
+      "command": "console:run-forced",
+      "keys": [
+        "Shift Enter"
+      ],
+      "selector": ".jp-CodeConsole-promptCell"
+    },
+
+    // [missing schema title]
+    // [missing schema description]
+    "console:run-unforced": {
+      "command": "console:run-unforced",
+      "keys": [
+        "Enter"
+      ],
+      "selector": ".jp-CodeConsole-promptCell"
+    },
+
+    // [missing schema title]
+    // [missing schema description]
+    "quickopen:activate": {
+      "command": "quickopen:activate",
+      "keys": [
+        "Accel Ctrl O"
+      ],
+      "selector": "body",
+      "title": "Activate Quick Open",
+      "category": "Main Area"
+    },
+        
+        
+    // [Create a new notebook]
+    "notebook:create-new": {
+      "command": "notebook:create-new",
+      "keys": [
+        "Accel Shift N"
+      ],
+      "selector": "body",
+      "title": "Create new notebook",
+      "category": "Notebook Operations"
+    },
+        
+    // [Create a new console for this notebook]
+    "notebook:create-console": {
+      "command": "notebook:create-console",
+      "keys": [
+        "Accel Shift C"
+      ],
+      "selector": "body",
+      "title": "Create new notebook",
+      "category": "Notebook Operations"
+    },
+        
+    // [Hide cell outputs]
+    "notebook:hide-cell-outputs": {
+      "command": "notebook:hide-cell-outputs",
+      "keys": [
+        "H H"
+      ],
+      "selector": ".jp-Notebook:focus",
+      "title": "Hide cell outputs",
+      "category": "Notebook Cell Operations"
+    },
+
+    // [Change cell to code]
+    "notebook:change-cell-to-code": {
+      "command": "notebook:change-cell-to-code",
+      "keys": [
+        "Accel Shift Y"
+      ],
+      "selector":  ".jp-Notebook.jp-mod-editMode",
+      "title": "Change to Code Cell Type",
+      "category": "Notebook Cell Operations"
+    },
+
+    // [change cell to markdown]
+    "notebook:change-cell-to-markdown": {
+      "command": "notebook:change-cell-to-markdown",
+      "keys": [
+        "Accel Shift M"
+      ],
+      "selector": ".jp-Notebook.jp-mod-editMode",
+      "title": "Change to Markdown Cell Type",
+      "category": "Notebook Cell Operations"
+    },
+
+    // [Change cell to raw]
+    "notebook:change-cell-to-raw": {
+      "command": "notebook:change-cell-to-raw",
+      "keys": [
+        "Accel Shift R"
+      ],
+      "selector": ".jp-Notebook.jp-mod-editMode",
+      "title": "Change to Raw Cell Type",
+      "category": "Notebook Cell Operations"
+    }
+    
+        
+
+}

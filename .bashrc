@@ -136,11 +136,17 @@ resetcolors="\[\e[0m\]"
 
 export PS1="${usercolor}\u@\h${pathcolor} \w${resetcolors} \n\\$ "
 
-# ENABLE CONDA TAB COMPLETION
-#eval "$(register-python-argcomplete conda)"
 
 # Set DISPLAY variable for X11 forwarding
 export DISPLAY="localhost:10.0"
+
+# Use GCC V9.2 installed in /usr/local/bin and library: /usr/local/lib64
+export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
+
+
+# Descarteslab authentication
+export DESCARTESLABS_CLIENT_ID="ZOBAi4UROl5gKZIpxxlwOEfx8KpqXf2c"
+export DESCARTESLABS_CLIENT_SECRET="6FmUKtowwvR1SJudvG5mSFb7B_1KXbjapbn-eO1Jiy-gU"
 
 
 # >>> conda initialize >>>
@@ -157,12 +163,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-#conda env autocomplete
-eval "$(register-python-argcomplete conda)"
-
-
-# Descarteslab authentication
-export DESCARTESLABS_CLIENT_ID="ZOBAi4UROl5gKZIpxxlwOEfx8KpqXf2c"
-export DESCARTESLABS_CLIENT_SECRET="6FmUKtowwvR1SJudvG5mSFb7B_1KXbjapbn-eO1Jiy-gU"
 
