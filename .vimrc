@@ -1,9 +1,10 @@
+"reference: 
+"http://realpython.com/vim-and-python-a-match-made-in-heaven/ 
+
 "vundle
 set nocompatible
 filetype off
 
-"Show full path to the file on the statusbar
-set statusline+=%F
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vundle Plugins
@@ -19,6 +20,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim' 
 
+" Show tags
+Plugin 'majutsushi/tagbar'
+
 "text-editting
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
@@ -31,6 +35,7 @@ Plugin 'jtratner/vim-flavored-markdown'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
 
+
 "python sytax checker
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-scripts/Pydiction'
@@ -39,8 +44,7 @@ Plugin 'scrooloose/syntastic'
 
 "auto-completion stuff
 Plugin 'klen/python-mode'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'klen/rope-vim'
+"Plugin 'Valloric/YouCompleteMe'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
 
@@ -54,19 +58,37 @@ Plugin 'jnurmine/Zenburn'
 call vundle#end()
 
 filetype plugin indent on    " enables filetype detection
+
+" Global settings for all files (but may be overridden in
+" ftplugin/<language>.vim files
+set tabstop=2
+set shiftwidth=2
+set noexpandtab
+" Don't ad comment leader for new insert line
+au BufEnter * set fo-=c fo-=r fo-=o 
+set confirm
+" TagToggleBar shortcut
+let g:tagbar_ctags_bin="/usr/local/bin/ctags"
+nnoremap <F2> :TagbarToggle<cr>
+
+" Yank from cursor to the end of line. Similarly to C and D
+"nnoremap Y y$
+
 let g:SimpylFold_docstring_preview = 1
-"let g:pydiction_location = '/Users/hjsong/.vim/bundle/Pydiction/complete-dict' 
+let g:pydiction_location = '/Users/hjsong/.vim/bundle/Pydiction/complete-dict' 
 
 "autocomplete
 let g:ycm_autoclose_preview_window_after_completion=1
 
 "custom keys
 let mapleader=" "
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>g:YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "colorscheme zenburn
 "set guifont=Monaco:h14
 
+" NERDTree
+nnoremap <F1> :NERDTreeToggle<cr>
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
 
 "I don't like swap files
@@ -74,31 +96,32 @@ set noswapfile
 
 "turn on numbering
 set nu
-
+set textwidth=80
+set fo+=cq
 "it would be nice to set tag files by the active virtualenv here
 ":set tags=~/mytags "tags for ctags and taglist
 "omnicomplete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+"au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
 
 "spaces for indents
-au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
-au BufRead,BufNewFile *.py,*.pyw set expandtab
-au BufRead,BufNewFile *.py set softtabstop=4
+"au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
+"au BufRead,BufNewFile *.py,*.pyw set expandtab
+"au BufRead,BufNewFile *.py set softtabstop=4
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight BadWhitespace ctermbg=red guibg=red
 
 " Display tabs at the beginning of a line in Python mode as bad.
-au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
+"au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 " Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+"au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 " Wrap text after a certain number of characters
-au BufRead,BufNewFile *.py,*.pyw, set textwidth=100
+au BufRead,BufNewFile *.py,*.pyw, set textwidth=120
 
 " Use UNIX (\n) line endings.
 au BufNewFile *.py,*.pyw,*.c,*.h set fileformat=unix
@@ -116,9 +139,10 @@ autocmd FileType python set autoindent
 " make backspaces more powerfull
 set backspace=indent,eol,start
 
-
 "Folding based on indentation:
 autocmd FileType python set foldmethod=indent
+set foldlevel=99
+
 "use space to open folds
 nnoremap <space> za 
 "----------Stop python PEP 8 stuff--------------
@@ -144,11 +168,18 @@ let g:ycm_seed_identifiers_with_syntax=1
 " turn on mouse support
 set mouse=a
 
+" Close terminal with <Esc>
+tnoremap <Esc> <C-w>:q!<CR>
+
 "Jump to a line number using <Enter> 
 nnoremap <CR> G
 
 " Highlight cursor line
 set cursorline
+hi CursorLine ctermbg=120 "LightBlue
+" Set new splits to appear on the right or bottom
+set splitbelow
+set splitright
 
 " It declares an automatic command (au), triggered when a buffer is read
 " (BufRead), matching all files (*) and executes the zR (opens all folds)
@@ -157,3 +188,35 @@ au BufRead * normal zR
 
 " Set highlight search
 set hlsearch
+hi Search cterm=None ctermfg=Red ctermbg=LightMagenta
+
+" netRW settings
+let g:netrw_banner = 0 " don't show banner
+let g:netrw_liststyle = 3 "use tree style
+let g:netrw_browse_split = 2
+let g:netrw_winsize = 25 "use 25% of the page
+
+" Mappings to access buffers (don't use "\p" because a
+" delay before pressing "p" would accidentally paste).
+" \l       : list buffers
+" \b \f \g : go back/forward/last-used
+" \1 \2 \3 : go to buffer 1/2/3 etc
+" src: https://vim.fandom.com/wiki/Easier_buffer_switching
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
+" It's useful to show the buffer number in the status line.
+set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" Show full path to the file on the statusbar
+set statusline+=%F
