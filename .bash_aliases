@@ -14,7 +14,7 @@ alias h='history'
 alias j='jobs -l'
 #alias which='type -a'
 alias ..='cd ..'
-
+alias so="source ~/.bashrc"
 alias kill9='kill -9'
 
 ########################################################################################
@@ -80,10 +80,6 @@ alias storage="du -sh * | sort -h"
 alias resetMouse="printf '\e[?1000l'"
 alias resetCP="printf '\e[?2004l'"
 
-# Move to Spacenet_Preprocess root directory and
-# activate fastai conda environment
-alias workmode="useFastai && cd ~/Playground/Spacenet_Preprocess"
-
 # cd to favorite folders
 alias cd_earthml="cd ~/Playground/Geo/EarthML/examples"
 alias cd_intml="cd ~/Playground/Geo/InteractML"
@@ -103,3 +99,6 @@ alias nvwatch="watch -d -n 1 nvidia-smi"
 # jupyter labextension
 alias jl="jupyter labextension"
 alias jll="jupyter labextension list"
+
+# workmode to turn on conda env
+alias wm="conda activate torch-src && cl"

@@ -148,6 +148,9 @@ export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
 export DESCARTESLABS_CLIENT_ID="ZOBAi4UROl5gKZIpxxlwOEfx8KpqXf2c"
 export DESCARTESLABS_CLIENT_SECRET="6FmUKtowwvR1SJudvG5mSFb7B_1KXbjapbn-eO1Jiy-gU"
 
+# Set Go Path
+export GOPATH=$HOME/golang
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
