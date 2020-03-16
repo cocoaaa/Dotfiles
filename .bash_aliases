@@ -93,7 +93,8 @@ alias notifyDone="osascript ~/Playground/AppleScripts/notify_done.scpt"
 alias qgis="open -n /Applications/QGIS3.app"
 
 # Blog content folder path
-alias BLOG="~/Workspace/Blog"
+alias cd_blog="~/Workspace/Blog"
+alias wmb="conda activate pelican-blog && cd ~/Workspace/Blog && clear"
 
 # Move to Dash's searchbar
 alias dq="open dash://" #dq for dash query
@@ -103,10 +104,10 @@ alias ssh_arya="ssh arya.usc.edu"
 alias ssh_jon='ssh jonsnow.usc.edu'
 alias ssh_umn="ssh geoserver@umnlcc.cs.umn.edu"
 # SSH port forward
-alias pf_arya="ssh -NfL 7000:localhost:7000 hayley@128.125.184.140"
 # Brightness of the display 1 to zero (dark)
 alias b0='brightness -d1 0'
 
 # jupyter labextension
 alias jl="jupyter labextension"
 alias jll="jupyter labextension list"
+
