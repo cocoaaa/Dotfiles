@@ -23,6 +23,10 @@ Plugin 'kien/ctrlp.vim'
 " Show tags
 Plugin 'majutsushi/tagbar'
 
+" Undotree
+Plugin 'simnalamburt/vim-mundo'
+
+
 "text-editting
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-surround'
@@ -73,6 +77,11 @@ nnoremap <F2> :TagbarToggle<cr>
 
 " Yank from cursor to the end of line. Similarly to C and D
 "nnoremap Y y$
+nnoremap U :echo " < < ===== C H E C K   C A P S   L O C K ===== > > "<CR>
+
+" Set persistent undo
+set undofile
+set undodir=~/.vim/undo
 
 let g:SimpylFold_docstring_preview = 1
 let g:pydiction_location = '/Users/hjsong/.vim/bundle/Pydiction/complete-dict' 
@@ -176,7 +185,7 @@ nnoremap <CR> G
 
 " Highlight cursor line
 set cursorline
-hi CursorLine ctermbg=120 "LightBlue
+hi CursorLine cterm=None ctermbg=120 "LightBlue
 " Set new splits to appear on the right or bottom
 set splitbelow
 set splitright
