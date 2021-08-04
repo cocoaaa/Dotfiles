@@ -88,3 +88,4 @@ alias resetCP="printf '\e[?2004l'"
 
 # ssh port forwarding
 alias pfArya="ssh -NfL 7000:localhost:7000 hayley@arya.usc.edu"
+alias pfs="ssh -NfL 9999:localhost:9999 hayley@arya.usc.edu && ssh -NfL 6006:localhost:6006 hayley@arya.usc.edu && ssh -NfL 7007:localhost:7007 hayley@arya.usc.edu"
