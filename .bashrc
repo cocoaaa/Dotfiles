@@ -35,7 +35,7 @@ export LESS='-MRi#8j.5'
 #             `------ show more information in prompt
 
 # default settings for grep
-export GREP_OPTIONS='--color --binary-files=without-match --exclude-dir .git'
+#export GREP_OPTIONS='--color --binary-files=without-match --exclude-dir .git'
 
 
 
@@ -71,6 +71,8 @@ function alert() {
     notify-send -i $icon "$last_cmd"
 }
 
+# Correct spelling
+shopt -q -s cdspell
 
 
 # SETTINGS
@@ -94,24 +96,8 @@ export HISTSIZE=1000000
 export HISTCONTROL=ignoredups   # don't store duplicated commands
 shopt -s histappend   # don't overwrite history file after each session
 
-# disable useless flow control binding, allowing Ctrl-S to search history forward
-stty -ixon
-
-# let Ctrl-O open ranger, a console file manager (http://nongnu.org/ranger/):
-bind '"\C-o":"ranger\C-m"'
-# this wrapper lets bash automatically change current directory to the last one
-# visited inside ranger.  (Use "cd -" to return to the original directory.)
-function ranger {
-    tempfile="$(mktemp)"
-    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" && cd -- "$(cat "$tempfile")"
-    rm -f -- "$tempfile"
-}
-
-
 
 # PROMPT
-
 # Colored prompt makes it easier to visually parse terminal output. Note that
 # using \[ and \] is necessary to prevent weird behavior (lines overlapping).
 
@@ -136,12 +122,6 @@ resetcolors="\[\e[0m\]"
 
 export PS1="${usercolor}\u@\h${pathcolor} \w${resetcolors} \n\\$ "
 
-# ENABLE CONDA TAB COMPLETION
-#eval "$(register-python-argcomplete conda)"
-
-# Set DISPLAY variable for X11 forwarding
-export DISPLAY="localhost:10.0"
-
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -157,12 +137,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-#conda env autocomplete
-eval "$(register-python-argcomplete conda)"
-
-
-# Descarteslab authentication
-export DESCARTESLABS_CLIENT_ID="ZOBAi4UROl5gKZIpxxlwOEfx8KpqXf2c"
-export DESCARTESLABS_CLIENT_SECRET="6FmUKtowwvR1SJudvG5mSFb7B_1KXbjapbn-eO1Jiy-gU"
 

@@ -91,3 +91,12 @@ alias resetCP="printf '\e[?2004l'"
 # activate fastai conda environment
 # alias workmode="useFastai && cd ~/Playground/Spacenet_Preprocess"
 
+# print date with format
+alias datet="date +%F-%R" # YYYY-MM-DD-Hour:Min 
+
+# linux: open window 
+alias open="xdg-open"
+
+# Tmux quick sessions
+alias tmuxaa="tmux attach -t arya"
+

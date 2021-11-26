@@ -7,6 +7,10 @@ echo "Setting up basic configurations"
 
 # Clone TPM
 #git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Install Vim package manager Vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 cd $HOME
 sudo ln -sf $HOME/Dotfiles/.bash_functions $HOME/.bash_functions && echo ".bash_function sym-linked"
 sudo ln -sf $HOME/Dotfiles/.bash_aliases $HOME/.bash_aliases && echo ".bash_aliases sym-linked"
