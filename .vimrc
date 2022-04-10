@@ -86,9 +86,23 @@ filetype plugin indent on    " enables filetype detection
 set mouse=a
 
 set textwidth=100
-set tabstop=2
+
+" Word-wrapping.
+"" Wrap visually, without inserting a newline
+set wrap
+
+"" Keeps words together at linebreak
+set linebreak
+
+" Indentation uses shftwidth variable
 set shiftwidth=2
+
+" Tab behavior.
+"" Use spaces when tab key is pressed
 set noexpandtab
+
+"" Pressing tab uses tabstop variable 
+set tabstop=2
 
 " Set persistent undo
 set undofile
@@ -96,6 +110,9 @@ set undodir=~/.vim/undo
 
 " Backspaces as other programs
 set backspace=indent,eol,start
+
+"" Makes Backspace delete shftwideth (indentation step), rather than one
+set smarttab
 
 " Set new splits to appear on the right or bottom
 set splitbelow
@@ -155,6 +172,7 @@ set statusline+=%F
 "     \ {'path': '~/vimwiki-dataframe', 'syntax': 'markdown', 'ext': '.md'},
 "     \ {'path': '~/vimwiki-personal', 'syntax': 'markdown', 'ext': '.md'}
 "     \ ]
+	let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext':	'.md'}] 
 " let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 " let g:vimwiki_url_maxsave=0
 " let g:vimwiki_global_ext=0
