@@ -46,9 +46,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
 
-########################################################################################
+################################################################################
 # Typos
-########################################################################################
+################################################################################
 alias VIM='vim'
 alias CLEAR='clear'
 alias cl='clear'
@@ -58,12 +58,10 @@ alias CD='cd'
 alias SUBL='subl'
 alias OPEN='open'
 
-########################################################################################
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
-########################################################################################
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 
 #alias rsync="rsync --progress --partial -avz"
 
@@ -73,24 +71,36 @@ alias grive="grive -P"
 # Show disk storage usage in the current directory
 alias storage="du -sh * | sort -h"
 
-
 # Reset mouse click reporting weird characters
-alias resetMouse="printf '\e[?1000l'"
-alias resetCP="printf '\e[?2004l'"
+alias rsmouse="printf '\e[?1000l'"
+alias rscp="printf '\e[?2004l'"
+alias rsmouse="printf '\e[?1000l'"
+alias rskb="printf '\e[?2004l' & printf '\e[?1000l'"
 
-#GIMP
+
+# Disable built-in Macbook keyboard
+alias disableKB="sudo kextunload -b com.apple.driver.AppleHIDKeyboard"
+
+# Enable back the built-in keyboard
+alias enableKB="sudo kextload -b com.apple.driver.AppleHIDKeyboard"
+
+################################################################################
+# Start apps from commandline
+################################################################################
 alias gimp="open /Applications/GIMP.app"
+alias tstudio="open /Applications/texstudio.app" 
+#alias tstudio="/Applications/texstudio.app/Contents/MacOS/texstudio &"
+alias qgis="open -n /Applications/QGIS3.app"
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC -I rc'
+
 
 alias so="source ~/.bash_profile"
 
-# Add notification for finished processes
 
 # Add notification for finished processes
 #alias notifyDone="terminal-notifier -message 'Job finished'"
 alias notifyDone="osascript ~/Playground/AppleScripts/notify_done.scpt"
 
-# QGIS3
-alias qgis="open -n /Applications/QGIS3.app"
 
 # Blog content folder path
 alias cd_blog="~/Workspace/Blog"
@@ -111,3 +121,9 @@ alias b0='brightness -d1 0'
 alias jl="jupyter labextension"
 alias jll="jupyter labextension list"
 
+
+alias mntarya="sudo sshfs -o allow_other,default_permissions,IdentityFile=~/.ssh/id_rsa
+hayley@arya.usc.edu:/ /mnt/arya"
+
+alias pfs="ssh -NfL 7007:localhost:7007 arya &&  ssh -NfL 6006:localhost:6006 arya && ssh -NfL 9999:localhost:9999 arya && ssh -NfL 8265:localhost:8265 arya"
+alias pf="ssh -NfL 9999:localhost:9999 hayley@arya.usc.edu"
