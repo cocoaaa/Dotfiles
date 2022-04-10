@@ -162,7 +162,4 @@ unset __conda_setup
 eval "$(register-python-argcomplete conda)"
 
 
-# Descarteslab authentication
-export DESCARTESLABS_CLIENT_ID="ZOBAi4UROl5gKZIpxxlwOEfx8KpqXf2c"
-export DESCARTESLABS_CLIENT_SECRET="6FmUKtowwvR1SJudvG5mSFb7B_1KXbjapbn-eO1Jiy-gU"
 
