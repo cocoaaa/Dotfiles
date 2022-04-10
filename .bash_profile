@@ -50,8 +50,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
+force_color_prompt=yes
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	# We have color support; assume it's compliant with Ecma-48
@@ -63,10 +62,22 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# Colored prompt makes it easier to visually parse terminal output. Note that
+# using \[ and \] is necessary to prevent weird behavior (lines overlapping).
+if [ -n "$SSH_CONNECTION" ]; then  # connected through SSH?
+    usercolor="\[\e[35m\]"  # yes -> magenta
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u:\w\$ '
+    usercolor="\[\e[96m\]"  # no -> 32m for lightgreen, 36m for stronger green, 96m: blurs into Sephia background coloror 34m for blue
+fi
+# pathcolor="\[\e[96m\]"  # blurs into Sephia background color
+pathcolor="\[\e[36m\]"  # no -> 32m for lightgreen, 36m for stronger green, or 34m for blue
+resetcolors="\[\e[0m\]"
+
+if [ "$color_prompt" = yes ]; then
+    PS1="${pathcolor}\w ${resetcolors} \n\\$ "
+    # PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1="${debian_chroot:+($debian_chroot)}\w \n\\$ "
 fi
 unset color_prompt force_color_prompt
 
@@ -175,3 +186,95 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 
 # Add path to texbin
 export PATH="/Library/TeX/texbin:${PATH}"
+
+# 2020-01-06: Copied from arys's bashrc 
+# Added to better prompt colors in Sephia background as in Arya
+# Aliasing 'g' to 'git' wouldn't be useful without autocompletion.
+complete -o default -o nospace -F _git g
+. /usr/share/bash-completion/completions/git 2> /dev/null
+
+# Instead of rm, which deletes files permanently, I prefer to use trash-cli
+# (github.com/andreafrancia/trash-cli) which moves files to system trash.
+alias tp='trash-put'
+#alias rm='echo "This is not the footgun you are looking for."; false'
+
+# Show a desktop notification when a command finishes. Use like this:
+#   sleep 5; alert
+function alert() {
+    if [ $? = 0 ]; then icon=terminal; else icon=error; fi
+    last_cmd="$(history | tail -n1 | sed 's/^\s*[0-9]*\s*//' | sed 's/;\s*alert\s*$//')"
+    notify-send -i $icon "$last_cmd"
+}
+
+
+
+# SETTINGS
+
+# enable autocompletion and make it case-insensitive
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+bind "set completion-ignore-case on"
+
+# let aliases work after sudo (see http://askubuntu.com/a/22043)
+alias sudo='sudo '
+
+# cd to a dir just by typing its name (requires bash > 4.0), autocorrect typos
+[ ${BASH_VERSION:0:1} -ge 4 ] && shopt -s autocd
+shopt -s cdspell
+
+# shell history is useful, let's have more of it
+export HISTFILESIZE=1000000
+export HISTSIZE=1000000
+export HISTCONTROL=ignoredups   # don't store duplicated commands
+shopt -s histappend   # don't overwrite history file after each session
+
+# disable useless flow control binding, allowing Ctrl-S to search history forward
+stty -ixon
+
+# let Ctrl-O open ranger, a console file manager (http://nongnu.org/ranger/):
+bind '"\C-o":"ranger\C-m"'
+# this wrapper lets bash automatically change current directory to the last one
+# visited inside ranger.  (Use "cd -" to return to the original directory.)
+function ranger {
+    tempfile="$(mktemp)"
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" && cd -- "$(cat "$tempfile")"
+    rm -f -- "$tempfile"
+}
+
+
+
+# PROMPT
+
+# Colored prompt makes it easier to visually parse terminal output. Note that
+# using \[ and \] is necessary to prevent weird behavior (lines overlapping).
+
+# I'm using bright colors because in most terminal palettes the "normal" ones
+# (\e[35m, \e[34m and \e[36m) are too dim - feel free to adjust.
+if [ -n "$SSH_CONNECTION" ]; then  # connected through SSH?
+    usercolor="\[\e[95m\]"  # yes -> magenta
+else
+    usercolor="\[\e[94m\]"  # no -> blue
+fi
+pathcolor="\[\e[96m\]"  # cyan path
+resetcolors="\[\e[0m\]"
+# export PS1="${usercolor}\u@\h${pathcolor} \w${resetcolors} \n\\$ "
+
+# $(__git_ps1) displays git repository status in the prompt - very handy!
+# Read more: https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+#GIT_PS1_SHOWDIRTYSTATE=1
+#GIT_PS1_DESCRIBE_STYLE="branch"
+#GIT_PS1_SHOWUPSTREAM="verbose git"
+
+# we don't want "command not found" errors when __git_ps1 is not installed
+#type __git_ps1 &>/dev/null || function __git_ps1 () { true; }
+
+
+
+# Set DISPLAY variable for X11 forwarding
+export DISPLAY="localhost:10.0"
+
+# Set Pylearn2 data path
+export PYLEARN2_DATA_PATH="$HOME/data/pylearn2"
+
