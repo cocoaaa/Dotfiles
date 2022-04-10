@@ -1081,3 +1081,5 @@
 
   ull = pull
   ush = push
+[help]
+	autocorrect = 1
