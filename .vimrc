@@ -354,4 +354,12 @@ nmap <Leader>g :Goyo<CR>
 nnoremap <Leader>n :NERDTreeToggle<cr>
 nnoremap <Leader>t :TagbarToggle<cr>
 
+" NERDTree setting
+nmap <C-f> :NERDTreeToggle<CR>
 
+" open NERDTree automatically
+autocmd VimEnter * NERDTree
+
+" use the system clipboard
+" https://gist.github.com/chrishunt/6042695
+set clipboard=unnamed

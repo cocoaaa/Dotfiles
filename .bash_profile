@@ -181,11 +181,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 # Setting PATH for Python 3.6
 # The original version is saved in .bash_profile.pysave
 # PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
-# export PATH
-. /Users/hayley/miniconda3/etc/profile.d/conda.sh
 
-# Add path to texbin
-export PATH="/Library/TeX/texbin:${PATH}"
 
 # 2020-01-06: Copied from arys's bashrc 
 # Added to better prompt colors in Sephia background as in Arya
@@ -277,4 +273,20 @@ export DISPLAY="localhost:10.0"
 
 # Set Pylearn2 data path
 export PYLEARN2_DATA_PATH="$HOME/data/pylearn2"
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/div26loaner/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/div26loaner/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/div26loaner/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/div26loaner/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 

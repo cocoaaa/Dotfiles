@@ -1,0 +1,30 @@
+Host *
+	AddKeysToAgent yes
+	UseKeychain yes
+	IdentityFile ~/.ssh/id_rsa
+	ServerAliveInterval 10
+	XAuthLocation /opt/X11/bin/xauth 
+# Keep connection alive
+# ~/.ssh.config or /etc/ssh_config for Global
+# For all hosts
+# For a selection of hosts
+#Host keepsdroppingme.com alsokeepsdroppingme.com
+# ServerAliveInterval 10
+
+# Enable compression and X11 forwarding
+# Useful for matplotlib plotting from remote
+ForwardX11 yes
+Compression yes
+
+Host arya
+	HostName arya.usc.edu
+	User hayley
+
+Host mint-vm1
+    User    hayley
+    Hostname vm1.mint.isi.edu
+    ProxyCommand ssh onto nc %h %p %r
+
+Host onto
+    User hayley
+    Hostname ontosoft.isi.edu	
