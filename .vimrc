@@ -41,9 +41,9 @@ Plugin 'vimwiki/vimwiki'
 
 " Html
 " isnowfy only compatible with python not python3
-Plugin 'isnowfy/python-vim-instant-markdown'
+" Plugin 'isnowfy/python-vim-instant-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
-Plugin 'suan/vim-instant-markdown'
+" Plugin 'suan/vim-instant-markdown'
 Plugin 'nelstrom/vim-markdown-preview'
 
 " Python sytax checker
@@ -260,7 +260,13 @@ autocmd FileType python set foldmethod=indent
 set foldlevel=99
 
 "use space to open folds
-nnoremap <space> za 
+nnoremap <space> za
+vnoremap <space> za 
+"see: http://box.matto.nl/folding-markdown-in-vim-without-a-plugin.html"
+
+"----------Code folding for markdown ----------
+let g:markdown_folding=1
+
 "----------Stop python PEP 8 stuff--------------
 
 "js stuff"
@@ -358,8 +364,21 @@ nnoremap <Leader>t :TagbarToggle<cr>
 nmap <C-f> :NERDTreeToggle<CR>
 
 " open NERDTree automatically
-autocmd VimEnter * NERDTree
+" autocmd VimEnter * NERDTree
 
 " use the system clipboard
 " https://gist.github.com/chrishunt/6042695
 set clipboard=unnamed
+
+" set autosave in vim
+" src: https://stackoverflow.com/questions/17365324/auto-save-in-vim-as-you-type
+" autocmd TextChanged,TextChangedI <buffer> silent write
+
+" Make a visual column at 80, 100
+set colorcolumn=80,100 
+" refs: https://stackoverflow.com/a/3765575
+"     : https://superuser.com/a/249856
+"  :set cc=+1 " this will automaticall set the base value of 'colorcolumn'
+" in relation to the textwidth. e.g., here colorcolumn = textwidth + 1
+
+
