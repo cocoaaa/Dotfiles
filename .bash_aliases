@@ -128,4 +128,10 @@ hayley@arya.usc.edu:/ /mnt/arya"
 alias umt="umount /mnt/arya"
 
 alias pfs="ssh -NfL 7007:localhost:7007 arya &&  ssh -NfL 6006:localhost:6006 arya && ssh -NfL 9999:localhost:9999 arya && ssh -NfL 8265:localhost:8265 arya"
+
 alias pf="ssh -NfL 9999:localhost:9999 hayley@arya.usc.edu"
+
+# cd aliases
+## cd into a working memory folder
+alias gdrive="/Volumes/GoogleDrive/My Drive"
+alias cdwm="cd '/Volumes/GoogleDrive/My Drive/MyDailyLogs/WM'"
