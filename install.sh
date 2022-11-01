@@ -6,3 +6,7 @@ ln -s Dotfiles/.vimrc $HOME/.vimrc
 ln -s Dotfiles/.gitconfig $HOME/.gitconfig
 git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
+
+
+# Install miniconda
+# https://dev.to/waylonwalker/installing-miniconda-on-linux-from-the-command-line-4ad7
