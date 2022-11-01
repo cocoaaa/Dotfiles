@@ -10,3 +10,4 @@ git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.v
 
 # Install miniconda
 # https://dev.to/waylonwalker/installing-miniconda-on-linux-from-the-command-line-4ad7
+# exec $SHELL # to restart the current shell without closing the terminal
