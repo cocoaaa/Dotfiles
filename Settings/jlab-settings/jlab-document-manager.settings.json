@@ -1,0 +1,5 @@
+{
+	    // Autosave Interval
+			    // Length of save interval in seconds
+					    "autosaveInterval": 60,
+}
