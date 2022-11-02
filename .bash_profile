@@ -110,9 +110,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 #bash-autocomplete
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-. $(brew --prefix)/etc/bash_completion
-fi
+#if [ -f $(brew --prefix)/etc/bash_completion ]; then
+#. $(brew --prefix)/etc/bash_completion
+#fi
 
 # Find all files modified since X amount of time ago
 # Use it like: lssince n[smhdw] dirname.
@@ -175,8 +175,6 @@ function frameworkpython {
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 
-# added by Miniconda3 installer
-# export PATH="/Users/hayley/miniconda3/bin:$PATH"
 
 # Setting PATH for Python 3.6
 # The original version is saved in .bash_profile.pysave
@@ -266,27 +264,32 @@ resetcolors="\[\e[0m\]"
 # we don't want "command not found" errors when __git_ps1 is not installed
 #type __git_ps1 &>/dev/null || function __git_ps1 () { true; }
 
+# Supress Apple's message that default shell has been changed to zsh
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 
 # Set DISPLAY variable for X11 forwarding
 export DISPLAY="localhost:10.0"
 
-# Set Pylearn2 data path
-export PYLEARN2_DATA_PATH="$HOME/data/pylearn2"
-
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/div26loaner/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/Users/hayley/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/div26loaner/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/div26loaner/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/Users/hayley/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/hayley/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/div26loaner/miniconda3/bin:$PATH"
+        export PATH="/Users/hayley/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+# LOGIN shells run ~/.bash_profile vs. all other non-login shells run .bashrc
+# see: https://tinyurl.com/2xzl4g29
+#[[ -f ~/.bashrc ]] && source ~/.bashrc 
 
