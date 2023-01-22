@@ -39,12 +39,16 @@ Plugin 'tpope/vim-commentary'
 " Vim wiki for note taking and KB
 Plugin 'vimwiki/vimwiki'
 
+" nvim Treesitter for better syntax-hling, code folding, etc
+Plugin 'nvim-treesitter/nvim-treesitter'
+
 " Html
 " isnowfy only compatible with python not python3
 " Plugin 'isnowfy/python-vim-instant-markdown'
 Plugin 'jtratner/vim-flavored-markdown'
 " Plugin 'suan/vim-instant-markdown'
-Plugin 'nelstrom/vim-markdown-preview'
+" Plugin 'nelstrom/vim-markdown-preview'
+Plugin 'masukomi/vim-markdown-folding'
 
 " Python sytax checker
 Plugin 'nvie/vim-flake8'
@@ -137,9 +141,10 @@ au BufEnter * set fo-=c fo-=r fo-=o
 
 " Color
 syntax enable
-" set background=light
-"colorscheme solarized "github "zenburn
-colorscheme zenburn
+set background=light
+" Set the colorscheme: colorscheme [solarized, github,zenburn]
+"colorscheme zenburn
+colorscheme solarized 
 
 " Use the below highlight group when displaying bad whitespace is desired.
 hi BadWhitespace ctermbg=red guibg=red
@@ -172,7 +177,7 @@ set statusline+=%F
 "     \ {'path': '~/vimwiki-dataframe', 'syntax': 'markdown', 'ext': '.md'},
 "     \ {'path': '~/vimwiki-personal', 'syntax': 'markdown', 'ext': '.md'}
 "     \ ]
-	let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext':	'.md'}] 
+"	let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext':	'.md'}] 
 " let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 " let g:vimwiki_url_maxsave=0
 " let g:vimwiki_global_ext=0
@@ -254,10 +259,10 @@ syntax on
 
 " Keep indentation level from previous line:
 autocmd FileType python set autoindent
-
 "Folding based on indentation:
-autocmd FileType python set foldmethod=indent
+autocmd FileType python setlocal foldmethod=indent
 set foldlevel=99
+set foldnestmax=2 " methods of classes are folded but not the internal statements
 
 "use space to open folds
 nnoremap <space> za
@@ -265,7 +270,15 @@ vnoremap <space> za
 "see: http://box.matto.nl/folding-markdown-in-vim-without-a-plugin.html"
 
 "----------Code folding for markdown ----------
-let g:markdown_folding=1
+" Ref: https://github.com/masukomi/vim-markdown-folding#installation
+let g:markdown_folding = 1
+let g:markdown_enable_folding = 1
+
+if has("autocmd")
+	filetype plugin indent on
+endif 
+" no files are folded when opening
+set nofoldenable
 
 "----------Stop python PEP 8 stuff--------------
 
@@ -350,8 +363,8 @@ nnoremap <Leader>0 :10b<CR>
 tnoremap <Esc> <C-w>:q!<CR>
 
 " Vimwiki diary navigation.
-nnoremap <C-j> :VimwikiDiaryNextDay<CR>
-nnoremap <C-k> :VimwikiDiaryPrevDay<CR>
+" nnoremap <C-j> :VimwikiDiaryNextDay<CR>
+" nnoremap <C-k> :VimwikiDiaryPrevDay<CR>
 
 " Goyo toggle.
 nmap <Leader>g :Goyo<CR>
