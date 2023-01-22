@@ -9,6 +9,13 @@ conda install -n base mamba
 
 # set up jupyterlab 3 env
 conda create -n jlab jupyterlab=3 nb_conda_kernel ipywidgets
+# - set up jupyterlab basic config and shortcuts
+conda activate jlab
+jupyter lab --generate-config # generated a config giel in
+#HOME/.jupyter/jupyrer_notebook_config.py
+# todo: make sure to copy each jlab-<setting-menu>-settings.json
+# to jupyterlab settings (in editor gui)
+
 
 # set up ML env
 conda create -n ml python=3.7 ipykernel 
