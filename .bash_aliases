@@ -45,6 +45,10 @@ alias grep='grep --color=auto --exclude-dir=\.svn'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 
+# syntax-highlight a file or stdin
+# install cli-highlight using: brew install highlight
+alias hl="highlight" 
+
 
 ################################################################################
 # Typos
@@ -135,3 +139,6 @@ alias pf="ssh -NfL 9999:localhost:9999 hayley@arya.usc.edu"
 ## cd into a working memory folder
 alias gdrive="/Volumes/GoogleDrive/My Drive"
 alias cdwm="cd '/Volumes/GoogleDrive/My Drive/MyDailyLogs/WM'"
+
+# brew command on M1 chip
+alias brew='arch -arm64 brew'
