@@ -144,13 +144,6 @@ export DISPLAY="localhost:10.0"
 export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
 
 
-# Descarteslab authentication
-export DESCARTESLABS_CLIENT_ID="ZOBAi4UROl5gKZIpxxlwOEfx8KpqXf2c"
-export DESCARTESLABS_CLIENT_SECRET="6FmUKtowwvR1SJudvG5mSFb7B_1KXbjapbn-eO1Jiy-gU"
-
-# Set Go Path
-export GOPATH=$HOME/golang
-export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -167,3 +160,17 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+#Julia
+export PATH="$PATH:~/julia-1.5.3/bin"
+
+# Scala prog. language
+# package manager
+. "$HOME/.cargo/env"
+
+# pyqt errors in conda env "test"
+# See alt.solns here: https://github.com/NVlabs/instant-ngp/discussions/300
+# I wonder if the error, in my case, was caused by either the opencv lib (soln:
+# install headless version) or the DISPLAY env-var I set above.
+# Anyways, for now setting the below env var prevents the error from occuring.
+# -- 20230328-173123
+export QT_QPA_PLATFORM=offscreen 

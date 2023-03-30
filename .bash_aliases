@@ -88,6 +88,7 @@ alias cd_sp="cd ~/Playground/Spacenet_Preprocess"
 alias cd_fai="cd ~/Playground/Fastai/course-v3"
 alias cd_pytalk="cd ~/Workspace/Talks/PyData-LA-2019"
 alias cd_rl="cd ~/Workspace/Class/CS669-RL"
+alias cdgit="cd /data/hayley-old/Github"
 
 # Grep jupyter-lab under hayley as user
 alias gjlab="ps aux | grep jupyter-lab | grep hayley"
@@ -96,9 +97,39 @@ alias gtb="ps aux | grep tensorboard | grep hayley"
 # nvidia-smi watch with difference highlighted
 alias nvwatch="watch -d -n 1 nvidia-smi"
 
-# jupyter labextension
+# python run script in debug mode
 alias jl="jupyter labextension"
 alias jll="jupyter labextension list"
 
 # workmode to turn on conda env
 alias wm="conda activate torch-src && cl"
+# alias wm="conda activate cuda100 && cd ~/Workspace/Class/CS669-RL && export PYTHONPATH=~/Workspace/Class/CS669-RL/hw2:~/Workspace/Class/CS669-RL/mtgen"
+
+# Turn on the conda env (`test`) with ML libs and PyTorch,  and go to the folder `Tenanbaum2000`
+alias wm_tb="conda activate test && cd /data/hayley-old/Tenanbaum2000"
+
+# Turn on the conda env with ml family and pytorch and go to `ReprLearn` project folder
+alias wm="conda activate test && cd /data/hayley-old/ReprLearn"
+
+# Activate 'ox' conda env and go to the `TileMani` folder
+alias wm_tile="conda activate ox && cd /data/hayley-old/TileMani"
+
+# cd to current project roots
+alias cd_sgm="cd /data/hayley-old/ModelSpace"
+alias cd_git="cd /data/hayley-old/Github"
+
+# Go to scipy2021 talk folder
+alias cd_scipy="cd /data/hayley-old/Talks/SciPy2021-geospatial-similarity"
+alias wm_scipy="conda activate ox && cd_scipy"
+
+# restart tensorboard at port 6006
+alias restart_tb="pkill tensorboard & nohup tensorboard --logdir=/data/log/03_27"
+
+# jupyter-book
+alias jb='jupyter-book'
+
+# neovim
+alias nvim='/home/hayley/Downloads/nvim.appimage'
+
+# tail default to 20lines
+#alias tail="tail -n20"

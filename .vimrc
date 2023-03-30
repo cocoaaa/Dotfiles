@@ -58,13 +58,16 @@ let g:SimpylFold_docstring_preview = 1
 "let g:pydiction_location = '/Users/hjsong/.vim/bundle/Pydiction/complete-dict' 
 
 "autocomplete
-let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_autoclose_preview_window_after_completion=1
 
 "custom keys
 let mapleader=" "
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
-"colorscheme zenburn
+" colorscheme zenburn
+" Manually set the default highlight colorscheme values of neovim to the one in vim
+hi Statement ctermfg=130 guifg=Brown
+hi Comment guifg=Blue
 "set guifont=Monaco:h14
 
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
@@ -76,7 +79,7 @@ set noswapfile
 set nu
 
 "it would be nice to set tag files by the active virtualenv here
-":set tags=~/mytags "tags for ctags and taglist
+set tags=~/.tags/* "tags for ctags and taglist
 "omnicomplete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
@@ -127,22 +130,25 @@ nnoremap <space> za
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 
 "" turn on completion in comments
-let g:ycm_complete_in_comments=1
+"let g:ycm_complete_in_comments=1
 "" load ycm conf by default
-let g:ycm_confirm_extra_conf=0
+"let g:ycm_confirm_extra_conf=0
 "" turn on tag completion
-let g:ycm_collect_identifiers_from_tags_files=1
+"let g:ycm_collect_identifiers_from_tags_files=1
 "" only show completion as a list instead of a sub-window
 set completeopt-=preview
 "" start completion from the first character
-let g:ycm_min_num_of_chars_for_completion=1
+"let g:ycm_min_num_of_chars_for_completion=1
 "" don't cache completion items
-let g:ycm_cache_omnifunc=0
+"let g:ycm_cache_omnifunc=0
 "" complete syntax keywords
-let g:ycm_seed_identifiers_with_syntax=1
+"let g:ycm_seed_identifiers_with_syntax=1
 
 " turn on mouse support
 set mouse=a
+
+" Close terminal with <Esc>
+"tnoremap <Esc> <C-w>:q!<CR>
 
 "Jump to a line number using <Enter> 
 nnoremap <CR> G
