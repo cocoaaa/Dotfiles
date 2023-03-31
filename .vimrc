@@ -144,7 +144,7 @@ syntax enable
 set background=light
 " Set the colorscheme: colorscheme [solarized, github,zenburn]
 "colorscheme zenburn
-colorscheme solarized 
+"colorscheme solarized 
 
 " Use the below highlight group when displaying bad whitespace is desired.
 hi BadWhitespace ctermbg=red guibg=red
@@ -177,10 +177,18 @@ set statusline+=%F
 "     \ {'path': '~/vimwiki-dataframe', 'syntax': 'markdown', 'ext': '.md'},
 "     \ {'path': '~/vimwiki-personal', 'syntax': 'markdown', 'ext': '.md'}
 "     \ ]
-"	let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext':	'.md'}] 
-" let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-" let g:vimwiki_url_maxsave=0
-" let g:vimwiki_global_ext=0
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext':	'.md'}] 
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+let g:vimwiki_url_maxsave=0
+let g:vimwiki_global_ext=0
+
+" Makes vimwiki markdown links as [text](text.md) rather than [text](text)
+" -- src: codevion's tutorial: https://www.youtube.com/watch?v=A1YgbAp5YRc&t=94s
+let g:vimwiki_markdown_link_ext = 1
+
+let g:markdown_foldering = 1
+let g:taskwiki_markup_syntax = 'markdown'
+
 
 " " Following vimwiki docs, use vfile in links to allow for non-.md files to be opened.
 " function! VimwikiLinkHandler(link)
