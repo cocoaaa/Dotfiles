@@ -3,7 +3,6 @@
 	email = haejinso@usc.edu
 
 [core]
-	excludesfile = /Users/hayley/.gitignore
 
 [color]
 	ui = auto
@@ -123,11 +122,14 @@
 
   ### log ###
   # stackoverflow link: http://bit.ly/2zVCiQJ
-  lg = !"git lg1"
+  lg = !"git lg0"
+  lg0 = !"git lg0-specific --all"
   lg1 = !"git lg1-specific --all"
   lg2 = !"git lg2-specific --all"
   lg3 = !"git lg3-specific --all"
 
+  #	lg0-specific = log --graph --abbrev-commit --decorate --format=format:'%C(red)%h%C(reset) %Cgreen%cr%Creset %s%C(bold red)%d%Creset' - %C(bold blue)%an%Creset 
+  lg0-specific = log --graph --abbrev-commit --decorate --format=format:'%C(blue)%h%C(reset) - %C(green)(%ar)%C(reset) %C(black)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
   lg1-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
   lg2-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
   lg3-specific = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
@@ -1084,3 +1086,5 @@
 [filter "clean_ipynb"]
 	clean = ipynb_drop_output
 	smudge = cat
+[init]
+	templatedir = /home/hayley/.git_templates
