@@ -90,4 +90,20 @@ alias resetCP="printf '\e[?2004l'"
 # Move to Spacenet_Preprocess root directory and
 # activate fastai conda environment
 # alias workmode="useFastai && cd ~/Playground/Spacenet_Preprocess"
+alias cdmd="cd /nas/vista-ssd01/users/haejinso/Projects/ModelSpace"
+alias cdrepr="cd /nas/vista-ssd01/users/haejinso/Projects/ModelSpace/nb"
+
+# SLURM cmds
+# alias jobstats="sacct -j job_id --format=User,JobID,Jobname,partition,state,time,start,end,elapsed,MaxRss,MaxVMSize,nnodes,ncpus,nodelist"
+alias lsql='squeue -u $USER -S +i -o "%7i %8u %4P %30j %2t %10R %10b"'
+alias lsq="squeue -u $USER  -o '%8i %10u %20j %4t %5D %20R %15b %3C %7m %11l %11L'"
+alias lsqa="squeue -Su -o '%8i %10u %20j %4t %5D %20R %15b %3C %7m %11l %11L'"
+# - shortcut to submit slrum jobs to move gm256 to node's tempdir and start jupyter lab
+alias runjl="sbatch Scripts/slurm-scripts/slurm-run-jlab-on-node.sh"
+
+# Watch with alias
+# src: https://unix.stackexchange.com/a/25329 
+# src: https://unix.stackexchange.com/a/453890
+alias watchx='watch -x '
+
 

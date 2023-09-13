@@ -13,6 +13,13 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim' 
 
+" Text-editting
+Plugin 'mg979/vim-visual-multi', {'branch': 'master'} "multi cursor
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-commentary'
+
+
 "html
 "  isnowfy only compatible with python not python3
 Plugin 'isnowfy/python-vim-instant-markdown'
@@ -27,7 +34,7 @@ Plugin 'scrooloose/syntastic'
 
 "auto-completion stuff
 Plugin 'klen/python-mode'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'klen/rope-vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'ervandew/supertab'
@@ -54,13 +61,20 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "colorscheme zenburn
 "set guifont=Monaco:h14
 
+
+" NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+"" toggle NERDTree
+map <F2> :NERDTreeToggle<CR>
 
 "I don't like swap files
 " set noswapfile
 
 "turn on numbering
 set nu
+" set relative line numbers, except current line
+set number
+set relativenumber
 
 "it would be nice to set tag files by the active virtualenv here
 ":set tags=~/mytags "tags for ctags and taglist
@@ -133,6 +147,11 @@ set mouse=a
 
 "Jump to a line number using <Enter> 
 nnoremap <CR> G
+
+" Scroll the screen and mouse cursor tgt
+" src: https://stackoverflow.com/a/59130651/20405542
+nnoremap <C-K> k<C-Y>
+nnoremap <C-J> j<C-E> 
 
 " Highlight cursor line
 set cursorline
